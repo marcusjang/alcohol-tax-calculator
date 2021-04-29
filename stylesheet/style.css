@@ -80,8 +80,7 @@ form label input {
 
 form label b {
   flex: 0 0 4.5em;
-  justify-content: end;
-  text-align: right;
+  justify-content: right;
 }
 
 form label span {
