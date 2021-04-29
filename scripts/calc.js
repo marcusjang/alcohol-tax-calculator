@@ -13,7 +13,7 @@ class Quote {
       30500,
       37000,
       43000
-    ]
+    ];
   	const prelim = (total*1 + shipping*1) * rate;
     const isSmallPacket = ((total * rate) <= 200000);
     
@@ -33,22 +33,24 @@ class Quote {
   }
 }
 
-const form = document.getElementById("form");
-const inputs = form.querySelectorAll('input[type=text]');
-const outputs = document.getElementById("outputs");
-const submit = document.querySelector("#submit button");
+document.addEventListener("DOMContentLoaded", event => {
+	const form = document.getElementById("form");
+	const inputs = form.querySelectorAll('input[type=text]');
+	const outputs = document.getElementById("outputs");
+	const submit = document.querySelector("#submit button");
 
-inputs.forEach(input => {
-	input.addEventListener('input', event => {
-  	event.target.value = event.target.value.replace(/[^.0-9]/ig, '');
-  	event.target.value = event.target.value.replace(/^([0-9]*\.[0-9]{2}).*$/ig, '$1');
-  });
-});
+	inputs.forEach(input => {
+		input.addEventListener('input', event => {
+		event.target.value = event.target.value.replace(/[^.0-9]/ig, '');
+		event.target.value = event.target.value.replace(/^([0-9]*\.[0-9]{2}).*$/ig, '$1');
+	  });
+	});
 
-submit.addEventListener('click', () => {
-  const quote = new Quote(form);
-  
-  for (const key in quote) {
-    if(outputs[key]) outputs[key].value = quote[key].toLocaleString('en');
-  }
+	submit.addEventListener('click', () => {
+	  const quote = new Quote(form);
+
+	  for (const key in quote) {
+	    if(outputs[key]) outputs[key].value = quote[key].toLocaleString('en');
+	  }
+	});
 });
