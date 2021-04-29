@@ -34,23 +34,26 @@ class Quote {
 }
 
 document.addEventListener("DOMContentLoaded", event => {
-	const form = document.getElementById("form");
-	const inputs = form.querySelectorAll('input[type=text]');
-	const outputs = document.getElementById("outputs");
-	const submit = document.querySelector("#submit button");
+    const form = document.getElementById("form");
+    const inputs = form.querySelectorAll('input[type=text]');
+    const outputs = document.getElementById("outputs");
+    const submit = document.querySelector("#submit button");
 
-	inputs.forEach(input => {
-		input.addEventListener('input', event => {
-		event.target.value = event.target.value.replace(/[^.0-9]/ig, '');
-		event.target.value = event.target.value.replace(/^([0-9]*\.[0-9]{2}).*$/ig, '$1');
-	  });
-	});
+    const decimal = (1.1).toLocaleString().replace(/\d/g, '');
 
-	submit.addEventListener('click', () => {
-	  const quote = new Quote(form);
+    inputs.forEach(input => {
+        input.addEventListener('input', event => {
+        event.target.value = event.target.value
+            .replace(new RegExp(`[^${decimal}0-9]`, 'g'), '')
+            .replace(new RegExp(`^([0-9]*\${decimal}[0-9]{2}).*$`, 'g'), '$1');
+        });
+    });
 
-	  for (const key in quote) {
-	    if(outputs[key]) outputs[key].value = quote[key].toLocaleString('en');
-	  }
-	});
+    submit.addEventListener('click', () => {
+        const quote = new Quote(form);
+
+        for (const key in quote) {
+            if(outputs[key]) outputs[key].value = quote[key].toLocaleString();
+        }
+    });
 });
