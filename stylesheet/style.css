@@ -1,12 +1,12 @@
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    /* display: none; <- Crashes Chrome on hover */
-    -webkit-appearance: none;
-    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 }
 
 input[type=number] {
-    -moz-appearance: textfield; /* Firefox */
+  -moz-appearance: textfield; /* Firefox */
 }
 
 body {
@@ -21,6 +21,14 @@ body {
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
   box-sizing: content-box;
   margin: 2em auto;
+  transition: border-radius, box-shadow 0.5s ease-in-out;
+}
+
+@media only screen and (max-width: 350px) {
+   #wrapper {
+     box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+     border-radius: 0;
+  }
 }
 
 #submit {
