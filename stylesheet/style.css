@@ -79,6 +79,7 @@ form label input {
   min-width: 0;
   height: 2em;
   display: flex;
+  line-height: 2em;
   margin: 0.2em 0;
   padding: 0.2em 0.8em;
 }
