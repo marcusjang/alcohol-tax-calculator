@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Alcohol Tax Calculator</title>
+</head>
+<body>
+  <section id="wrapper">
+    <form id="form">
+      <p>
+        <label>
+          <b>구매금액</b>
+          <input name="total" type="text" inputmode="numeric" placeholder="0">
+        </label>
+      </p>
+      <p>
+        <label>
+          <b>병수</b>
+          <input name="bottles" type="text" inputmode="numeric" value="1">
+        </label>
+      </p>
+      <p>
+        <label>
+          <b>배송비</b>
+          <input name="shipping" type="text" inputmode="numeric" placeholder="0">
+        </label>
+      </p>
+      <p>
+        <label>
+          <b>구매환율</b>
+          <input name="rate" type="text" inputmode="numeric" value="1497.72">
+        </label>
+      </p>
+      <p>
+        <label>
+          <b>달러환율</b>
+          <input name="dollarRate" type="text" inputmode="numeric" value="1106.36">
+        </label>
+      </p>
+      <p>
+        <label>
+          <b>FTA</b>
+          <input name="isFTA" type="checkbox">
+        </label>
+      </p>
+    </form>
+    <section id="submit">
+      <button>
+        <span>계산</span>
+      </button>
+    </section>
+    <form id="outputs">
+      <p>
+        <label>
+          <b>과세기준</b>
+          <input name="baseline" type="text" readonly>
+          <span>&#8361;</span>
+        </label>
+        <span></span>
+      </p>
+      <p>
+        <label>
+          <b>관세</b>
+          <input name="tariff" type="text" readonly>
+          <span>&#8361;</span>
+        </label>
+      </p>
+      <p>
+        <label>
+          <b>주세</b>
+          <input name="alcoholTax" type="text" readonly>
+          <span>&#8361;</span>
+        </label>
+      </p>
+      <p>
+        <label>
+          <b>교육세</b>
+          <input name="eduTax" type="text" readonly>
+          <span>&#8361;</span>
+        </label>
+      </p>
+      <p>
+        <label>
+          <b>부가세</b>
+          <input name="vat" type="text" readonly>
+          <span>&#8361;</span>
+        </label>
+      </p>
+      <p>
+        <label>
+          <b>총 세금</b>
+          <input name="totalTax" type="text" readonly>
+          <span>&#8361;</span>
+        </label>
+      </p>
+      <p>
+        <label>
+          <b>총액</b>
+          <input name="total" type="text" readonly>
+          <span>&#8361;</span>
+        </label>
+      </p>
+    </form>
+  </section>
+  <footer>
+    <p>
+      Made with Scotch by Marcus Jang
+    </p>
+  </footer>
+</body>
+</html>
