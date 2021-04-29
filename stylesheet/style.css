@@ -64,7 +64,7 @@ form {
 form span {
   color: #567;
   display: block;
-  font-size: 0.7em;
+  // font-size: 0.7em;
 }
 
 form p > span {
@@ -77,9 +77,10 @@ form label b,
 form label span,
 form label input {
   min-width: 0;
-  height: 2em;
+  height: 2.5em;
+  align-items: center;
   display: flex;
-  line-height: 2em;
+  line-height: 2.5em;
   margin: 0.2em 0;
   padding: 0.2em 0.8em;
 }
