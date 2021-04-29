@@ -16,7 +16,7 @@ class Quote {
         ];
         const prelim = (total*1 + shipping*1) * rate;
 
-        this.baseline = ((total * rate) <= 200000) ? (total * rate) + parcelPrice[bottles-1] : prelim;
+        this.baseline = Math.trunc(((total * rate) <= 200000) ? (total * rate) + parcelPrice[bottles-1] : prelim);
         this.hasAdditTax = (this.baseline / dollarRate >= 150) || bottles > 1;
         this.tariff = (this.hasAdditTax && !isFTA) ? this.trunc(this.baseline * 0.2) : 0;
         this.alcoholTax = this.trunc((this.baseline + this.tariff) * 0.72);
