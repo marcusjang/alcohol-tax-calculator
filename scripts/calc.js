@@ -1,25 +1,24 @@
 class Quote {
-	constructor({
-  	total: { value: total }, 
-  	bottles: { value: bottles }, 
-  	shipping: { value: shipping }, 
-  	rate: { value: rate }, 
-  	dollarRate: { value: dollarRate }, 
-  	isFTA: { checked: isFTA }, 
-  }) {
+    constructor({
+        total: { value: total }, 
+        bottles: { value: bottles }, 
+        shipping: { value: shipping }, 
+        rate: { value: rate }, 
+        dollarRate: { value: dollarRate }, 
+        isFTA: { checked: isFTA }
+    }) {
     const parcelPrice = [
-      18500,
-      24500,
-      30500,
-      37000,
-      43000
+        18500,
+        24500,
+        30500,
+        37000,
+        43000
     ];
   	const prelim = (total*1 + shipping*1) * rate;
-    const isSmallPacket = ((total * rate) <= 200000);
     
-  	this.baseline = this.trunc(isSmallPacket ? (total * rate) + parcelPrice[bottles-1] : prelim);
+  	this.baseline = this.trunc(((total * rate) <= 200000) ? (total * rate) + parcelPrice[bottles-1] : prelim);
     this.hasAdditTax = (this.baseline / dollarRate >= 150) || bottles > 1;
-	  this.tariff = (this.hasAdditTax && !isFTA) ? this.trunc(this.baseline * 0.2) : 0;
+	this.tariff = (this.hasAdditTax && !isFTA) ? this.trunc(this.baseline * 0.2) : 0;
     this.alcoholTax = this.trunc((this.baseline + this.tariff) * 0.72);
     this.eduTax = this.trunc(this.alcoholTax * 0.3);    
     this.vat = (this.hasAdditTax) ? this.trunc((this.baseline + this.tariff + this.alcoholTax + this.eduTax) * 0.1) : 0;
