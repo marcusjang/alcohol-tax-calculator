@@ -1,0 +1,59 @@
+.switch {
+    border-radius: 16px;
+    display: flex;
+    font-size: 0;
+    height: 32px;
+    margin: 0;
+    padding: 0;
+}
+
+span.switch {
+    box-sizing: border-box;
+}
+
+div.switch.module.initialised {
+    background: #ddd;
+    border-color: #eee;
+    border-style: solid;
+    border-width: 1px;
+    box-sizing: content-box;
+    cursor: pointer;
+    width: 50px;
+}
+
+div.switch.module span.switch.background {
+    width: 32px;
+}
+
+div.switch.module.checked span.switch.background {
+    width: 100%;
+}
+
+span.switch.background {
+    background: hsl(120 90% 50%);
+    max-width: 100%;
+    min-width: 32px;
+    margin-right: -32px;
+    transition-duration: 100ms;
+    transition-property: width;
+}
+
+span.switch.handle {
+    background: #fff;
+    border-color: rgba(0, 0, 0, 0.2);
+    border-style: solid;
+    border-width: 1px;
+    cursor: grab;
+    user-select: none;
+    width: 32px;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+span.switch.handle.down {
+    cursor: grabbing;
+}

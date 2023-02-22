@@ -1,0 +1,219 @@
+html {
+	font-family: sans-serif;
+}
+
+#header {
+	align-items: center;
+	display: flex;
+	max-width: 81.5rem;
+	margin: 20mm auto;
+}
+
+#header figure {
+	background-image: linear-gradient(135deg, rgba(255,0,255,1) 20%, rgba(1,255,171,1) 80%);;
+	border-radius: 4rem;
+	display: flex;
+	margin: 0;
+}
+
+#header figure,
+#header figure img {
+	height: 8rem;
+	width: 8rem;
+}
+
+#header h1 {
+	align-content: center;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	font-size: 1.6rem;
+	font-family: "Consolas", monospace;
+	justify-content: left;
+	letter-spacing: -0.05em;
+	margin-left: 2rem;
+}
+
+#header h1 span {
+	display: flex;
+}
+
+#header h1 span.sub-domain {
+}
+
+#header h1 span.domain {
+	background: #22222f;
+	color: #eeeee3;
+	margin-right: -0.5em;
+}
+
+#header h1 span.domain,
+#header h1 span.tld {
+	font-size: 1.2em;
+	padding: 0.2em 0.5em;
+}
+#header h1 span.tld {
+	color: #22222f;
+}
+
+#header h1 span.sub-domain,
+#header h1 span.path {
+	font-style: italic;
+	font-weight: lighter;
+	flex-basis: 100%;
+	margin-bottom: 0.2em;
+}
+
+#header h1 span.path {
+	padding-left: 0.5em;
+}
+
+#footer {
+	color: #666;
+	padding: 3rem 0;
+	text-align: center;
+}
+
+#footer figure {
+	margin: 1rem 0;
+}
+
+#footer figure img {
+	height: 5rem;
+	width: 5rem;
+}
+
+#calculator {
+	background-color: #eeeee3;
+	background-image: linear-gradient(0deg, rgba(0,0,0,0.025) 0, rgba(0,0,0,0) 3mm);
+	padding: min(10vw, 50mm) 0;
+}
+
+section.container {
+	align-content: flex-start;
+	align-items: flex-start;
+	column-gap: 0.5rem;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+    justify-content: center;
+    padding: 0 1rem;
+	row-gap: 0.5rem;
+}
+
+section.row {
+	align-content: flex-start;
+	align-items: flex-start;
+	column-gap: 0.5rem;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+    justify-content: center;
+	row-gap: 0.5rem;
+}
+
+section.cluster {
+	align-content: flex-start;
+	align-items: flex-start;
+	column-gap: 0.5rem;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	min-height: 20.5rem;
+	row-gap: 0.5rem;
+}
+
+.block {
+	min-height: 10rem;
+	width: 10rem;
+}
+
+.block.double-width {
+	width: 20.5rem;
+}
+
+.block.quadruple-width {
+	width: 41.5rem;
+}
+
+@media (max-width: 43.5rem) {
+	.block.quadruple-width {
+		width: 20.5rem;
+	}
+}
+
+.block.container {
+	column-gap: 0.5rem;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	row-gap: 0.5rem;
+}
+
+.block label {
+	border-radius: 1rem;
+	box-shadow: 0.025rem 0.075rem 0.2rem rgba(0, 0, 0, 0.1),
+		0 0.5rem 3rem rgba(0, 0, 0, 0.1),
+		0 0.5rem 5rem rgba(0, 0, 0, 0.05);
+	display: block;
+	height: 10rem;
+}
+
+.block label div.inner {
+	background-color: white;
+	border-radius: 1rem;
+	box-sizing: border-box;
+	height: 100%;
+	padding: 0.5rem;
+	position: relative;
+	width: 100%;
+}
+
+.block label h3 {
+	font-size: 1.4rem;
+	margin: 0.75rem;
+	pointer-events: none;
+	position: absolute;
+}
+
+.block input[type=text],
+.block output {
+	background: transparent;
+	border: none;
+	box-sizing: border-box;
+	display: block;
+	font-size: 1.5rem;
+	font-weight: lighter;
+	height: 100%;
+	padding: 4rem 1em 0.5rem 1em;
+	text-align: right;
+	width: 100%;
+}
+
+.block input[type=text]:focus {
+	border: none;
+	outline: none;
+}
+
+.block input[type=checkbox] {
+	display: block;
+	height: 1.8em;
+	margin-left: 5.5rem;
+	margin-top: 5.5rem;
+	width: 1.8em;
+}
+
+.block select {
+	background: transparent;
+	border: none;
+	display: block;
+	font-size: 1.4rem;
+	height: 100%;
+	padding: 4rem 1em 0.5rem 1em;
+	width: 100%;
+}
+
+.results .block label div.inner {
+	background-color: #22222f;
+	color: #eee;
+}
