@@ -99,8 +99,8 @@ section.main.inputs section.container {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-    justify-content: center;
-    padding: 0 1rem;
+	justify-content: center;
+	padding: 0 1rem;
 	row-gap: 0.5rem;
 }
 
@@ -111,7 +111,7 @@ section.main.inputs section.row {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-    justify-content: center;
+	justify-content: center;
 	row-gap: 0.5rem;
 }
 
@@ -155,7 +155,8 @@ section.main.inputs section.cluster {
 
 .block label {
 	border-radius: 1rem;
-	box-shadow: 0.025rem 0.075rem 0.2rem rgba(0, 0, 0, 0.1),
+	box-shadow:
+		0.025rem 0.075rem 0.2rem rgba(0, 0, 0, 0.1),
 		0 0.5rem 3rem rgba(0, 0, 0, 0.1),
 		0 0.5rem 5rem rgba(0, 0, 0, 0.05);
 	display: block;
@@ -173,14 +174,31 @@ section.main.inputs section.cluster {
 }
 
 .block label h3 {
+	display: flex;
 	font-size: 1.4rem;
 	margin: 0.75rem;
 	pointer-events: none;
 	position: absolute;
 }
 
+.block label .dot {
+	background-color: #ccc;
+	border-radius: 0.45rem;
+	display: block;
+	height: 0.9rem;
+	position: absolute;
+	right: 1.5em;
+	top: 1.5em;
+	transition: background-color 100ms ease-in-out;
+	width: 0.9rem;
+}
+
+.block label .dot.active {
+	background-color: #d36;
+}
+
 .block input[type=text],
-.block output {
+.block output.value {
 	align-items: center;
 	background: transparent;
 	border: none;
@@ -210,6 +228,7 @@ section.main.inputs section.cluster {
 }
 
 .block select {
+	appearance: none;
 	background: transparent;
 	border: none;
 	display: block;
@@ -224,12 +243,44 @@ section.main.inputs section.cluster {
 	color: #eee;
 }
 
-section.optional.inputs .container {
-	padding: 2rem;
+section.total {
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+	background: rgba(255, 255, 255, 0.7);
+	bottom: 0;
+	position: sticky;
+	padding-bottom: env(safe-area-inset-bottom, 0);
+	padding-top: env(safe-area-inset-top, 0);
+	top: 0;
 }
+
+section.total .container {
+	align-items: baseline;
+	display: flex;
+	justify-content: flex-end;
+	margin: 0 auto;
+	max-width: 65rem;
+	padding: 0 0.5em;
+}
+
+section.total output {
+	font-size: 2.5em;
+	font-weight: lighter;
+	margin: 0 0.5em;
+	padding: 0.3em 0;
+}
+
+section.total output::before {
+	content: "₩";
+	font-size: 0.6em;
+	margin-right: 0.4em;
+	opacity: 0.8;
+}
+
 section.optional.inputs .container {
 	margin: 0 auto;
 	max-width: 65rem;
+	padding: 2rem;
 }
 
 section.optional.inputs fieldset {

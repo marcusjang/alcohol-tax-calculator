@@ -40,6 +40,7 @@
 									<div class="inner">
 										<h3>USD</h3>
 										<input name="price-usd" data-type="price" data-currency="USD" type="text" placeholder="0.00">
+										<output name="over-150-usd" class="dot"></output>
 									</div>
 								</label>
 							</div>
@@ -48,6 +49,7 @@
 									<div class="inner">
 										<h3>KRW</h3>
 										<input name="price-krw" data-type="price" data-currency="KRW" type="text" placeholder="0">
+										<output name="over-200k-krw" class="dot"></output>
 									</div>
 								</label>
 							</div>
@@ -93,7 +95,7 @@
 							<label>
 								<div class="inner">
 									<h3>예상세액</h3>
-									<output name="tax-total">0</output>
+									<output class="value" name="tax-total">0</output>
 								</div>
 							</label>
 						</div>
@@ -102,7 +104,7 @@
 								<label>
 									<div class="inner">
 										<h3>주세</h3>
-										<output name="tax-alcohol">0</output>
+										<output class="value" name="tax-alcohol">0</output>
 									</div>
 								</label>
 							</div>
@@ -110,7 +112,7 @@
 								<label>
 									<div class="inner">
 										<h3>교육세</h3>
-										<output name="tax-edu">0</output>
+										<output class="value" name="tax-edu">0</output>
 									</div>
 								</label>
 							</div>
@@ -118,7 +120,7 @@
 								<label>
 									<div class="inner">
 										<h3>관세</h3>
-										<output name="tax-tariff">0</output>
+										<output class="value" name="tax-tariff">0</output>
 									</div>
 								</label>
 							</div>
@@ -126,13 +128,20 @@
 								<label>
 									<div class="inner">
 										<h3>부가세</h3>
-										<output name="tax-vat">0</output>
+										<output class="value" name="tax-vat">0</output>
 									</div>
 								</label>
 							</div>
 						</div>
 					</section>
 				</section>
+			</section>
+		</section>
+		
+		<section class="total">
+			<section class="container">
+				<h3>예상 총액</h3>
+				<output name="total">0</output>
 			</section>
 		</section>
 
