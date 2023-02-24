@@ -75,12 +75,18 @@ class QuoteForm {
 			const { type } = elem.dataset;
 			if (tagName === 'INPUT' && type === 'price') {
 				elem.addEventListener('input', event => {
+					const value = event.target.value;
+
+					event.target.value = value
+						.replace(/[^\d,\.]/g, '')
+						.replace(/^0+/, '');
+
 					event.target.dispatchEvent(
 						new CustomEvent('update-price', {
 							bubbles: true,
 							detail: {
 								originalTarget: event.target,
-								value: parseFloat(event.target.value),
+								value: parseFloat(value.replace(/[^\d\.]/g, '')),
 								currency: event.target.dataset.currency
 							}
 						})
@@ -113,13 +119,13 @@ class QuoteForm {
 				this.price = event.detail.value;
 			
 			if (originalTarget !== this.elements.price)
-				this.elements.price.value = QuoteForm.trunc(this.price / this.rate);
+				this.elements.price.value = (this.price <= 0 || isNaN(this.price)) ? null : QuoteForm.trunc(this.price / this.rate);
 			
 			if (originalTarget !== this.elements['price-usd'])
-				this.elements['price-usd'].value = this.priceUSD;
+				this.elements['price-usd'].value = (this.price <= 0 || isNaN(this.price)) ? null : this.priceUSD;
 			
 			if (originalTarget !== this.elements['price-krw'])
-				this.elements['price-krw'].value = QuoteForm.trunc(this.price);
+				this.elements['price-krw'].value = (this.price <= 0 || isNaN(this.price)) ? null : Math.round(this.price).toLocaleString();
 
 			this.render();
 		}, true);
@@ -150,6 +156,10 @@ class QuoteForm {
 		this.elements['tax-tariff'].value = this.tariff.toLocaleString();
 		this.elements['tax-vat'].value = this.vat.toLocaleString();
 		this.elements['total'].value = this.total.toLocaleString();
+
+		for (const elem of this.elements['currency-code']) {
+			elem.value = this.currency;
+		}
 	}
 	
 	get shipping() {

@@ -198,8 +198,7 @@ section.main.inputs section.cluster {
 }
 
 .block .module.container,
-.block input[type=text],
-.block output.value {
+.block output.currency-code {
 	align-items: center;
 	background: transparent;
 	border: none;
@@ -213,6 +212,22 @@ section.main.inputs section.cluster {
 	padding-top: 4rem;
 	text-align: right;
 	width: 100%;
+	user-select: none;
+	-webkit-user-select: none;
+}
+
+.block .module.container.unit-postfix {
+	padding-right: 3.25rem;
+}
+
+.block output.currency-code {
+	color: #999;
+	font-size: 1rem;
+	left: 0;
+	top: 0;
+	padding-top: 4.25rem;
+	padding-right: 1.25rem;
+	position: absolute;
 }
 
 .block input[type=text]:focus {
@@ -230,7 +245,11 @@ section.main.inputs section.cluster {
 
 .block select {
 	appearance: none;
-	background: transparent;
+	background-color: transparent;
+	background-repeat: no-repeat;
+	background-position: calc(100% - 0.5em) 50%;
+	background-size: 0.85em auto;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Cpath d='M70.3 13.8L40 66.3 9.7 13.8z' fill='%23000'%3E%3C/path%3E%3C/svg%3E");
 	border: none;
 	display: block;
 	font-size: 1.4rem;
@@ -247,7 +266,7 @@ section.main.inputs section.cluster {
 section.total {
 	backdrop-filter: blur(10px);
 	-webkit-backdrop-filter: blur(10px);
-	background: rgba(255, 255, 255, 0.7);
+	background: rgba(255, 255, 255, 0.8);
 	position: sticky;
 	bottom: env(safe-area-inset-bottom, 0);
 	top: env(safe-area-inset-top, 0);
