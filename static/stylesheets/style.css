@@ -200,7 +200,7 @@ section.main.inputs section.cluster {
 .block .module.container,
 .block output.currency-code {
 	align-items: center;
-	background: transparent;
+	background-color: transparent;
 	border: none;
 	box-sizing: border-box;
 	display: flex;
@@ -245,7 +245,6 @@ section.main.inputs section.cluster {
 
 .block select {
 	appearance: none;
-	background-color: transparent;
 	background-repeat: no-repeat;
 	background-position: calc(100% - 0.5em) 50%;
 	background-size: 0.85em auto;
