@@ -227,6 +227,7 @@ section.main.inputs section.cluster {
 	top: 0;
 	padding-top: 4.25rem;
 	padding-right: 1.25rem;
+	pointer-events: none;
 	position: absolute;
 }
 
