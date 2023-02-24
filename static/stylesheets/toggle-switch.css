@@ -17,6 +17,7 @@ div.switch.module.initialised {
     border-style: solid;
     border-width: 1px;
     box-sizing: content-box;
+    box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.07);
     cursor: pointer;
     width: 50px;
 }
@@ -30,7 +31,8 @@ div.switch.module.checked span.switch.background {
 }
 
 span.switch.background {
-    background: hsl(120 90% 50%);
+    background: rgb(130, 220, 10);
+    box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.07);
     max-width: 100%;
     min-width: 32px;
     margin-right: -32px;

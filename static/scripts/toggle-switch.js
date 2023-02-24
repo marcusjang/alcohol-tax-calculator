@@ -5,10 +5,6 @@ const clicked = {
 	handlers: undefined
 };
 
-document.addEventListener('DOMContentLoaded', init);
-document.addEventListener('mouseup', globalMouseupHandler);
-document.addEventListener('mousemove', globalMousemoveHandler);
-
 function globalMousemoveHandler(event) {
 	if (clicked.state) {
 		event.preventDefault();
@@ -27,34 +23,22 @@ function initSwitch(elem) {
 	const input = elem.querySelector('input[type=checkbox]');
 	const background = document.createElement('span');
 	const handle = document.createElement('span');
-	const label = elem.closest('label');
 
 	const mousemove = function (event) {
-		background.style.width = `${event.x - elem.offsetLeft + handle.clientWidth/2}px`;
+		background.style.width = `${event.x - elem.getBoundingClientRect().left + handle.getBoundingClientRect().width/2}px`;
 	}
 
 	const mouseup = function (event) {
 		const dx = Math.abs(clicked.pos.x - event.x);
-		const width = parseInt(background.style.width);
+		const width = background.getBoundingClientRect().width;
 		const minWidth = parseInt(getComputedStyle(background).minWidth);
 
-		background.style.removeProperty('width');
+		input.checked = (dx < 3) ?
+			input.checked :
+			(width <= (minWidth + elem.getBoundingClientRect().width)/2);
 
-		if (dx < 3) {
-			elem.classList.toggle('checked');
-		} else {
-			if (width > (minWidth + elem.clientWidth)/2) {
-				elem.classList.add('checked');
-			} else {
-				elem.classList.remove('checked');
-			}
-		}
-		
-		if (elem.classList.contains('checked')) {
-			input.checked = true;
-		} else {
-			input.checked = false;
-		}
+
+		background.style.removeProperty('width');
 	}
 
 	const mousedown = function (event) {
@@ -69,11 +53,9 @@ function initSwitch(elem) {
 
 	input.style.display = 'none';
 	input.addEventListener('change', () => {
-		if (input.checked) {
-			elem.classList.add('checked');
-		} else {
+		(input.checked) ?
+			elem.classList.add('checked') :
 			elem.classList.remove('checked');
-		}
 	});
 
 	background.classList.add('background', 'switch');
@@ -89,3 +71,7 @@ function init() {
 	const switches = document.querySelectorAll('div.switch.module');
 	switches.forEach(initSwitch);
 }
+
+document.addEventListener('DOMContentLoaded', init);
+document.addEventListener('mouseup', globalMouseupHandler);
+document.addEventListener('mousemove', globalMousemoveHandler);

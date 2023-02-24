@@ -197,6 +197,7 @@ section.main.inputs section.cluster {
 	background-color: #d36;
 }
 
+.block .module.container,
 .block input[type=text],
 .block output.value {
 	align-items: center;
@@ -247,11 +248,10 @@ section.total {
 	backdrop-filter: blur(10px);
 	-webkit-backdrop-filter: blur(10px);
 	background: rgba(255, 255, 255, 0.7);
-	bottom: 0;
 	position: sticky;
-	padding-bottom: env(safe-area-inset-bottom, 0);
-	padding-top: env(safe-area-inset-top, 0);
-	top: 0;
+	bottom: env(safe-area-inset-bottom, 0);
+	top: env(safe-area-inset-top, 0);
+	
 }
 
 section.total .container {
@@ -299,6 +299,5 @@ section.optional.inputs label {
 	box-sizing: border-box;
 	flex-grow: 1;
 	min-width: 15rem;
-	padding: 2rem;
 	width: 30%;
 }

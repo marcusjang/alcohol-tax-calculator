@@ -6,7 +6,9 @@
 	<meta name="theme-color" content="#eeeee3">
 	<link rel="stylesheet" href="./static/stylesheets/normalize.css">
 	<link rel="stylesheet" href="./static/stylesheets/style.css">
+	<link rel="stylesheet" href="./static/stylesheets/toggle-switch.css">
 	<script src="./static/scripts/script.js"></script>
+	<script src="./static/scripts/toggle-switch.js"></script>
 	<title>blocks</title>
 </head>
 <body>
@@ -30,7 +32,7 @@
 							<label>
 								<div class="inner">
 									<h3>물품가액</h3>
-									<input name="price" data-type="price" data-currency="" type="text" value="0">
+									<input name="price" data-type="price" data-currency="" type="text" placeholder="0.00">
 								</div>
 							</label>
 						</div>
@@ -82,7 +84,11 @@
 								<label>
 									<div class="inner">
 										<h3>FTA</h3>
-										<input name="fta" type="checkbox">
+										<div class="module container">
+											<div class="switch module">
+												<input name="fta" type="checkbox">
+											</div>
+										</div>
 									</div>
 								</label>
 							</div>
