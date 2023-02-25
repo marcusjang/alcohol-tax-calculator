@@ -169,7 +169,7 @@ class QuoteForm {
 		this.elements['total'].value = this.total.toLocaleString();
 
 		for (const elem of this.elements['currency-code']) {
-			elem.value = this.currency;
+			elem.value = (!!this.currency) ? this.currency : '---';
 		}
 	}
 	
