@@ -31,7 +31,7 @@ html {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  font-family: monospace;
+  font-family: "Consolas", monospace;
   font-size: 20px;
   font-weight: lighter;
   justify-content: left;
@@ -82,12 +82,16 @@ html {
 }
 
 #footer {
-  color: #666;
+  color: #999;
   padding: 3rem 0;
   text-align: center;
 }
 #footer figure {
-  margin: 1rem 0;
+  column-gap: 1.5rem;
+  display: flex;
+  justify-content: center;
+  margin: 1rem auto;
+  row-gap: 1rem;
 }
 #footer figure img {
   height: 3rem;
