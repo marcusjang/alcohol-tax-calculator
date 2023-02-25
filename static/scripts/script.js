@@ -27,7 +27,7 @@ async function getData() {
 	if (new Date(expiryDate) <= Date.now() || !data) {
 		console.log('no local data found, fetching remote...');
 		const { data: newData, expires } = await fetchData();
-		localStorage.setItem(key.data, JSON.stringify(data));
+		localStorage.setItem(key.data, JSON.stringify(newData));
 		localStorage.setItem(key.expires, expires);
 		data = newData;
 	}
