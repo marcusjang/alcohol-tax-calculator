@@ -1,0 +1,41 @@
+@media (prefers-color-scheme: light) {
+  :root {
+    color-scheme: light;
+  }
+  #footer {
+    color: #666;
+  }
+  #quote .main {
+    background-color: hsl(60, 24%, 91%);
+  }
+  #quote .main .block label .inner {
+    background-color: white;
+  }
+  #quote .main .results .block label .inner {
+    background-color: #22222f;
+  }
+  #quote .total {
+    background: rgba(255, 255, 255, 0.8);
+  }
+  #quote .optional fieldset {
+    border-bottom: 1px solid #ccc;
+  }
+  .block label p {
+    color: #999;
+  }
+  .block label .dot {
+    background-color: #ccc;
+  }
+  .block label .dot.warn {
+    background-color: #d36;
+  }
+  .block .unit {
+    color: #999;
+  }
+  .block select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Cpath d='M70.3 13.8L40 66.3 9.7 13.8z' fill='%23000'%3E%3C/path%3E%3C/svg%3E");
+    color: black;
+  }
+}
+
+/*# sourceMappingURL=light-theme.css.map */

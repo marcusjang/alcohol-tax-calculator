@@ -4,31 +4,40 @@
 	<meta charset="utf-8">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-	<meta name="theme-color" content="#ffffff">
+	<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+	<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#121317">
 	<meta name="application-name" content="주세계산기 - melange.works">
 	<meta name="author" content="melange.works">
 	<meta name="description" content="증류주 또는 과실주의 수입 시 발생하는 대한민국 주세를 계산합니다.">
 	<meta name="keywords" content="주세, 관세, 교육세, 계산기, 수입, 주세계산, 위스키, 브랜디, 꼬냑, 아르마냑, 와인">
-	<meta name="color-scheme" content="only light">
+	<meta name="color-scheme" content="light dark">
 	<meta name="robots" content="index, nofollow, noarchive">
 
 	<link rel="stylesheet" href="./static/stylesheets/normalize.css">
 	<link rel="stylesheet" href="./static/stylesheets/style.css">
+	<link rel="stylesheet" href="./static/stylesheets/light-theme.css">
+	<link rel="stylesheet" href="./static/stylesheets/dark-theme.css">
 	<link rel="stylesheet" href="./static/stylesheets/toggle-switch.css">
 	<script src="./static/scripts/script.js"></script>
 	<script src="./static/scripts/toggle-switch.js"></script>
-	<title>주세계산기 - melange.works</title>
+	<title>주세계산기 | melange.works</title>
 </head>
 <body>
 	<header id="header">
-		<figure>
-			<img src="./static/images/logo.png">
-		</figure>
+		<a class="logo" href="/">
+			<figure>
+					<img src="./static/images/logo.png">
+			</figure>
+		</a>
 		<h1>
-			<span class="sub-domain">app.</span>
-			<span class="domain">melange</span>
-			<span class="tld">works</span>
-			<span class="path">/calculator</span>
+			<a class="home" href="/">
+				<span class="domain">
+					<span class="inner">app.melange.works</span>
+				</span>
+				<span class="path">
+					<span class="inner">calculator</span>
+				</span>
+			</a>
 		</h1>
 	</header>
 	<form id="quote">
@@ -161,8 +170,7 @@
 		<section class="optional">
 			<section class="container">
 				<fieldset>
-					<legend>추가 구매 정보</legend>
-
+					<legend>추가 정보</legend>
 
 					<div class="block">
 						<label>
@@ -248,6 +256,20 @@
 						</label>
 					</div>
 					-->
+
+					<div class="block">
+						<label>
+							<div class="inner">
+								<h3>다크 모드</h3>
+								<select class="module container" name="dark-mode">
+									<option selected value="default">자동</option>
+									<option value="light">밝게</option>
+									<option value="dark">어둡게</option>
+								</select>
+							</div>
+							<p>페이지의 다크 모드를 설정합니다.</p>
+						</label>
+					</div>
 				</fieldset>
 			</section>
 		</section>

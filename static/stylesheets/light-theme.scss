@@ -1,0 +1,67 @@
+@media (prefers-color-scheme: light) {
+	:root {
+		color-scheme: light;
+	}
+
+	#header {
+		h1 {
+			span {
+			}
+		}
+	}
+
+	#footer {
+		color: #666;
+	}
+
+	#quote {
+		.main {
+			background-color: hsl(60, 24%, 91%);
+
+			.block {
+				label {
+					.inner {
+						background-color: white;
+					}
+				}
+			}
+
+			.results .block label .inner {
+				background-color: #22222f;
+			}
+		}
+
+		.total {
+			background: rgba(255, 255, 255, 0.8);
+		}
+
+		.optional {
+			fieldset {
+				border-bottom: 1px solid #ccc;
+			}
+		}
+	}
+
+	.block {
+		label {
+			p {
+				color: #999;
+			}
+
+			.dot {
+				background-color: #ccc;
+
+				&.warn { background-color: #d36; }
+			}
+		}
+
+		.unit {
+			color: #999;
+		}
+
+		select {
+			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Cpath d='M70.3 13.8L40 66.3 9.7 13.8z' fill='%23000'%3E%3C/path%3E%3C/svg%3E");
+			color: black;
+		}
+	}
+}
