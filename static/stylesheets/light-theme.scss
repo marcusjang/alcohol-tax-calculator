@@ -5,7 +5,28 @@
 
 	#header {
 		h1 {
-			span {
+			a {
+				color: white;
+
+				& > span {
+					&.domain {
+						.inner,
+						&::before,
+						&::after {
+							background-color: #22222f;
+							color: white;
+						}
+					}
+
+					&.path {
+						.inner,
+						&::before,
+						&::after {
+							background-color: #eeeee3;
+							color: #22222f;
+						}
+					}
+				}
 			}
 		}
 	}
@@ -33,12 +54,6 @@
 
 		.total {
 			background: rgba(255, 255, 255, 0.8);
-		}
-
-		.optional {
-			fieldset {
-				border-bottom: 1px solid #ccc;
-			}
 		}
 	}
 

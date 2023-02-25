@@ -2,6 +2,17 @@
   :root {
     color-scheme: light;
   }
+  #header h1 a {
+    color: white;
+  }
+  #header h1 a > span.domain .inner, #header h1 a > span.domain::before, #header h1 a > span.domain::after {
+    background-color: #22222f;
+    color: white;
+  }
+  #header h1 a > span.path .inner, #header h1 a > span.path::before, #header h1 a > span.path::after {
+    background-color: #eeeee3;
+    color: #22222f;
+  }
   #footer {
     color: #999;
   }
@@ -16,9 +27,6 @@
   }
   #quote .total {
     background: rgba(255, 255, 255, 0.8);
-  }
-  #quote .optional fieldset {
-    border-bottom: 1px solid #ccc;
   }
   .block label p {
     color: #999;

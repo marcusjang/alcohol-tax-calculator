@@ -259,7 +259,6 @@ class QuoteForm {
 
 function init() {
 	const form = document.forms[0];
-	
 	const quote = new QuoteForm(form);
 	
 	getData().then(data => {
@@ -276,6 +275,29 @@ function init() {
 		quote.elements.currency.options[0].innerText = '환율을 불러오지 못함';
 		console.error(err);
 	});
+
+	const buttons = document.querySelectorAll('.message .close');
+
+	let seenMsgs = JSON.parse(localStorage.getItem('seenMsgs'));
+
+	if (!seenMsgs)
+		seenMsgs = [];
+
+	for (const seenMsg of seenMsgs) {
+		const message = document.getElementById(seenMsg);
+		if (message)
+			message.remove();
+	}
+
+	for (const button of buttons) {
+		button.addEventListener('click', event => {
+			const message = event.target.closest('.message');
+			const id = message.id;
+			seenMsgs.push(id);
+			localStorage.setItem('seenMsgs', JSON.stringify(seenMsgs));
+			message.remove();
+		});
+	}
 }
 
 document.addEventListener('DOMContentLoaded', init);
