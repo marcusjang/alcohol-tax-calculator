@@ -1,4 +1,4 @@
-const parcelPrice = [
+const parcelPrices = [
 	[1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20],
 	[9900, 15500, 20000, 24500, 29000, 34000, 38500, 43000, 47500, 52500, 57000],
 	[11000, 17000, 21500, 26000, 30500, 35500, 40000, 44500, 49000, 54000, 58500],
@@ -119,7 +119,6 @@ class QuoteForm {
 		}
 
 		this.form.addEventListener('update-price', event => {
-			
 			const originalTarget = event.detail.originalTarget;
 			
 			if (originalTarget === this.elements.price)
@@ -158,8 +157,13 @@ class QuoteForm {
 	}
 	
 	render() {
-		(this.over150USD) ? this.elements['over-150-usd'].classList.add('active') : this.elements['over-150-usd'].classList.remove('active');
-		(this.over200kKRW) ? this.elements['over-200k-krw'].classList.add('active') : this.elements['over-200k-krw'].classList.remove('active');
+		this.weight = parseFloat(this.elements['parcel-weight'].value);
+		this.weightClass = (this.weight <= 1 || isNaN(this.weight)) ?
+			0 : (this.weight > 20) ?
+				10 : Math.ceil(this.weight/2);
+
+		(this.over150USD) ? this.elements['over-150-usd'].classList.add('warn') : this.elements['over-150-usd'].classList.remove('warn');
+		(this.over200kKRW) ? this.elements['over-200k-krw'].classList.add('warn') : this.elements['over-200k-krw'].classList.remove('warn');
 		
 		this.elements['tax-total'].value = this.totalTax.toLocaleString();
 		this.elements['tax-alcohol'].value = this.alcoholTax.toLocaleString();
@@ -167,6 +171,8 @@ class QuoteForm {
 		this.elements['tax-tariff'].value = this.tariff.toLocaleString();
 		this.elements['tax-vat'].value = this.vat.toLocaleString();
 		this.elements['total'].value = this.total.toLocaleString();
+
+		this.elements['shipping'].dataset.parcel = this.shippingTax;
 
 		for (const elem of this.elements['currency-code']) {
 			elem.value = (!!this.currency) ? this.currency : '---';
@@ -179,8 +185,11 @@ class QuoteForm {
 	}
 	
 	get shippingTax() {
-		return (this.over200kKRW) ? this.shipping : 18500;
-		// todo: variable shipping price according to region and/or weight
+		const parcelPrice = parcelPrices[this.region][this.weightClass];
+		return (this.over200kKRW) ?
+			this.shipping : (!isNaN(parcelPrice)) ?
+				parcelPrice : 18500;
+		// 18500 is fallback for region 3 weight 2kg
 	}
 	
 	get priceUSD() {
@@ -263,6 +272,12 @@ function init() {
 			select.append(option)
 		}
 		quote.setCurrency();
+	}).catch(err => {
+		// fallback data;
+		quote.rate = 1500;
+		quote.rateUSD = 1200;
+		quote.region = 3;
+		console.error(err)
 	});
 }
 
