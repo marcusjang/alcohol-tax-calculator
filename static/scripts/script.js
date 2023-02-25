@@ -272,7 +272,10 @@ function init() {
 			select.append(option)
 		}
 		quote.setCurrency();
-	}).catch(err => console.error(err));
+	}).catch(err => {
+		quote.elements.currency.options[0].innerText = '환율을 불러오지 못함';
+		console.error(err);
+	});
 }
 
 document.addEventListener('DOMContentLoaded', init);
