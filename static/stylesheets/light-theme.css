@@ -13,6 +13,10 @@
     background-color: #eeeee3;
     color: #22222f;
   }
+  #header h1 a > span.title .inner, #header h1 a > span.title::before, #header h1 a > span.title::after {
+    background-color: #f6f6ef;
+    color: #999;
+  }
   #footer {
     color: #999;
   }

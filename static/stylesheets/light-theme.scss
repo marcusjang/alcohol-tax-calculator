@@ -26,6 +26,15 @@
 							color: #22222f;
 						}
 					}
+
+					&.title {
+						.inner,
+						&::before,
+						&::after {
+							background-color: #f6f6ef;
+							color: #999;
+						}
+					}
 				}
 			}
 		}

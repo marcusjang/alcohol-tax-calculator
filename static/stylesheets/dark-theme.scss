@@ -28,6 +28,15 @@
 							color: #eeeee3;
 						}
 					}
+
+					&.title {
+						.inner,
+						&::before,
+						&::after {
+							background-color: #445;
+							color: #bbb;
+						}
+					}
 				}
 			}
 		}
