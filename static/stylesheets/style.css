@@ -84,6 +84,7 @@ html {
 #header h1 a > span.title .inner, #header h1 a > span.title::before, #header h1 a > span.title::after {
   background-color: #f6f6f6;
   color: #666;
+  font-family: sans-serif;
 }
 #header > a {
   color: #666;
