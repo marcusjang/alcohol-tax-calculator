@@ -6,7 +6,8 @@ const parcelPrice = [
 	[13000, 20000, 27500, 35500, 43000, 50500, 58500, 66000, 74000, 81500, 89000]
 ];
 
-const rateDataUrl = 'https://gist.githubusercontent.com/marcusjang/ae44a296cad4df07a12c4e211ded4871/raw/bf6c0b60456d0f0b21a4c28d2fd95bfc2856ec96/rates.json';
+const rateDataUrl = 'https://app.melange.works/api/rates';
+const rateDataOptions = { method: 'post', headers: { 'x-mw-app-nonce': '99999' }};
 const countryDataUrl = 'https://gist.githubusercontent.com/marcusjang/51253d9124a75e846ff78331415674ac/raw/3d01a7091ffb808170033e6322542953a0c8d558/country_data.json';
 const countryPriority = [ 'GB', 'EU', 'US', 'DK', 'JP' ];
 
@@ -15,25 +16,33 @@ function isoCountryCodeToFlagEmoji(country) {
 	return String.fromCodePoint(...[...country.toUpperCase()].map(c => c.charCodeAt() + 0x1F1A5));
 }
 
-
 async function getData() {
-	const key = 'country-data';
-	//localStorage.removeItem(key);
-	let data = JSON.parse(localStorage.getItem(key));
-	if (!data) {
-		console.log('no local data found, fetching remote...');
-		data = await fetchData();
-		localStorage.setItem(key, JSON.stringify(data));
+	const key = {
+		data: 'country-data',
+		expires: 'country-data-expires'
 	}
+	const expiryDate = new Date(localStorage.getItem(key.expires));
+	let data = JSON.parse(localStorage.getItem(key.data));
+
+	if (new Date(expiryDate) <= Date.now() || !data) {
+		console.log('no local data found, fetching remote...');
+		const { data: newData, expires } = await fetchData();
+		localStorage.setItem(key.data, JSON.stringify(data));
+		localStorage.setItem(key.expires, expires);
+		data = newData;
+	}
+
 	return data;
 }
 
 function fetchData() {
 	return Promise.all([
-		fetch(rateDataUrl).then(res => res.json()),
+		fetch(rateDataUrl, rateDataOptions).then(res => res.json()),
 		fetch(countryDataUrl).then(res => res.json())
-	]).then(data => {
-		return data[1].sort((a, b) => {
+	]).then(fetchedData => {
+		const [ rates, countries ] = fetchedData;
+		const expires = rates.expires;
+		const data = countries.sort((a, b) => {
 			const aCode = a.country_code;
 			const bCode = b.country_code;
 			const aIndex = countryPriority.findIndex(code => code === aCode);
@@ -42,10 +51,12 @@ function fetchData() {
 			if (bIndex === -1) return -1;
 			return aIndex - bIndex;
 		}).map(country => {
-			country.rate = data[0][country.currency_code];
+			country.rate = rates.data[country.currency_code];
 			country.flag = isoCountryCodeToFlagEmoji(country.country_code);
 			return country;
 		});
+
+		return { data, expires };
 	});
 }
 
