@@ -272,13 +272,7 @@ function init() {
 			select.append(option)
 		}
 		quote.setCurrency();
-	}).catch(err => {
-		// fallback data;
-		quote.rate = 1500;
-		quote.rateUSD = 1200;
-		quote.region = 3;
-		console.error(err)
-	});
+	}).catch(err => console.error(err));
 }
 
 document.addEventListener('DOMContentLoaded', init);
