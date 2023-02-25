@@ -81,6 +81,10 @@ html {
   background-color: #eeeee3;
   color: #22222f;
 }
+#header h1 a > span.title .inner, #header h1 a > span.title::before, #header h1 a > span.title::after {
+  background-color: #f6f6f6;
+  color: #666;
+}
 #header > a {
   color: #666;
   padding: 0.5em 1em;
