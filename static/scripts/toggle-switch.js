@@ -57,6 +57,9 @@ function initSwitch(elem) {
 			elem.classList.add('checked') :
 			elem.classList.remove('checked');
 	});
+	
+	if (input.checked)
+		elem.classList.add('checked');
 
 	background.classList.add('background', 'switch');
 
