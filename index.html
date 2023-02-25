@@ -2,14 +2,22 @@
 <html>
 <head>
 	<meta charset="utf-8">
+
 	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 	<meta name="theme-color" content="#ffffff">
+	<meta name="application-name" content="주세계산기 - melange.works">
+	<meta name="author" content="melange.works">
+	<meta name="description" content="증류주 또는 과실주의 수입 시 발생하는 대한민국 주세를 계산합니다.">
+	<meta name="keywords" content="주세, 관세, 교육세, 계산기, 수입, 주세계산, 위스키, 브랜디, 꼬냑, 아르마냑, 와인">
+	<meta name="color-scheme" content="only light">
+	<meta name="robots" content="index, nofollow, noarchive">
+
 	<link rel="stylesheet" href="./static/stylesheets/normalize.css">
 	<link rel="stylesheet" href="./static/stylesheets/style.css">
 	<link rel="stylesheet" href="./static/stylesheets/toggle-switch.css">
 	<script src="./static/scripts/script.js"></script>
 	<script src="./static/scripts/toggle-switch.js"></script>
-	<title>blocks</title>
+	<title>주세계산기 - melange.works</title>
 </head>
 <body>
 	<header id="header">
@@ -24,7 +32,7 @@
 		</h1>
 	</header>
 	<form id="quote">
-		<section class="main inputs">
+		<section class="main">
 			<section class="container">
 				<section class="row">
 					<section class="cluster">
@@ -33,7 +41,7 @@
 								<div class="inner">
 									<h3>물품가액</h3>
 									<input class="module container unit-postfix" name="price" data-type="price" data-currency="" type="text" placeholder="0.00" inputmode="decimal" tabindex="1">
-									<output class="currency-code" name="currency-code">---</output>
+									<output class="unit" name="currency-code">---</output>
 								</div>
 							</label>
 						</div>
@@ -75,7 +83,7 @@
 									<div class="inner">
 										<h3>운임</h3>
 										<input class="module container unit-postfix" name="shipping" type="text" placeholder="0.00" inputmode="decimal" tabindex="1">
-										<output class="currency-code" name="currency-code">---</output>
+										<output class="unit" name="currency-code">---</output>
 									</div>
 								</label>
 							</div>
@@ -150,84 +158,78 @@
 			</section>
 		</section>
 
-		<section class="optional inputs">
+		<section class="optional">
 			<section class="container">
 				<fieldset>
 					<legend>추가 구매 정보</legend>
-					<label class="field">
-						<div>
-							<h3>주종</h3>
-							<select name="tax-alcohol-rate">
-								<option selected value="72">증류주 (주세 72%)</option>
-								<option value="30">과실주 및 청주 (주세 30%)</option>
-							</select>
-						</div>
-						<p>주세 산정에 사용할 주종을 선택합니다.</p>
-					</label>
-					<label class="field">
-						<div>
-							<h3>2병 이상</h3>
-							<div class="input">
-								<div class="switch module">
-									<input name="multiple-bottles" type="checkbox">
+
+
+					<div class="block">
+						<label>
+							<div class="inner">
+								<h3>주종</h3>
+								<select class="module container" name="tax-alcohol-rate">
+									<option selected value="72">증류주 (주세 72%)</option>
+									<option value="30">과실주 및 청주 (주세 30%)</option>
+								</select>
+							</div>
+							<p>주세 산정에 사용할 주종을 선택합니다.</p>
+						</label>
+					</div>
+
+					<div class="block">
+						<label>
+							<div class="inner">
+								<h3>무게</h3>
+								<input class="module container unit-postfix" name="weight" type="text" placeholder="0" inputmode="decimal" value="2">
+								<span class="unit">kg</span>
+							</div>
+							<p>선편소포우편물요금 산정에 사용할 무게를 선택합니다. (실제 무게와 부피무게 중 큰 쪽)</p>
+						</label>
+					</div>
+
+					<div class="block">
+						<label>
+							<div class="inner">
+								<h3>2병/1리터 이상</h3>
+								<div class="module container">
+									<div class="switch module">
+										<input name="multiple-bottles" type="checkbox">
+									</div>
 								</div>
 							</div>
-						</div>
-						<p>2병 이상을 구매할 경우 선택합니다.</p>
-					</label>
-					<label class="field">
-						<div>
-							<h3>배송비 포함</h3>
-							<div class="input">
-								<div class="switch module">
-									<input name="include-shipping" type="checkbox">
+							<p>2병 또는 1리터 이상을 구매할 경우 선택합니다.</p>
+						</label>
+					</div>
+
+					<div class="block">
+						<label>
+							<div class="inner">
+								<h3>배송비 포함</h3>
+								<div class="module container">
+									<div class="switch module">
+										<input name="include-shipping" type="checkbox">
+									</div>
 								</div>
 							</div>
-						</div>
-						<p>과세액 계산에 배송비를 포함할지 여부를 선택합니다. (20만원 금액 상당 이상시 자동 선택)</p>
-					</label>
-					<label class="field">
-						<div>
-							<h3>무게</h3>
-							<input type="text" placeholder="...kg">
-						</div>
-						<p>항공소포운임 계산에 사용할 무게를 입력합니다.</p>
-					</label>
-					<label class="field">
-						<div>
-							<h3>고급 모드</h3>
-							<div class="input">
-								<div class="switch module">
-									<input type="checkbox">
-								</div>
+							<p>과세액 계산에 배송비를 포함할지 여부를 선택합니다.</p>
+						</label>
+					</div>
+
+					<div class="block">
+						<label>
+							<div class="inner">
+								<h3>관세</h3>
+								<input class="module container unit-postfix" name="tax-tariff-rate" type="text" placeholder="20.0" inputmode="decimal" value="20.0">
+								<span class="unit">%</span>
 							</div>
-						</div>
-						<p>관세율, 환율 등을 수동으로 입력합니다.</p>
-					</label>
-					<label class="field">
-						<div>
-							<h3>관세율 수동 입력</h3>
-							<input name="tax-tariff-rate" type="text" value="20">
-						</div>
-						<p>국가, 품목별 관세율을 수동으로 입력합니다.</p>
-					</label>
-					<label class="field">
-						<div>
-							<h3>구매 환율</h3>
-							<input type="text" placeholder="환율 입력">
-						</div>
-						<p>주류 구매에 사용된 통화의 환율을 수동으로 입력합니다.</p>
-					</label>
-					<label class="field">
-						<div>
-							<h3>달러 환율</h3>
-							<input type="text" placeholder="환율 입력">
-						</div>
-						<p>기준으로 사용할 달러 환율을 수동으로 입력합니다.</p>
-					</label>
+							<p>국가, 품목별 관세율을 수동으로 입력합니다.</p>
+						</label>
+					</div>
 				</fieldset>
 			</section>
 		</section>
+
 	</form>
 	<footer id="footer">
 		<figure>
