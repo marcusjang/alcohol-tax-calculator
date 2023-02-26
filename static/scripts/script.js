@@ -186,7 +186,7 @@ class QuoteForm {
 	
 	get shippingTax() {
 		const parcelPrice = parcelPrices[this.region][this.weightClass];
-		return (this.over200kKRW) ?
+		return (this.over200kKRW || this.shipping < parcelPrice) ?
 			this.shipping : (!isNaN(parcelPrice)) ?
 				parcelPrice : 18500;
 		// 18500 is fallback for region 3 weight 2kg
