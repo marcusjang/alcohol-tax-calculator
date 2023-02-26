@@ -218,7 +218,7 @@ class QuoteForm {
 	
 	get tariff() {
 		const rate = parseInt(this.elements['tax-tariff-rate'].value) / 100
-		return (this.fta || !this.over150USD) && !this.multipleBottles ?
+		return (this.fta || !(this.over150USD || this.multipleBottles)) ?
 			0 : QuoteForm.floorTen(this.baseline * rate);
 	}
 	
