@@ -147,3 +147,44 @@ footer {
     border-radius: 0;
   }
 }
+
+
+.message {
+  background-color: hsl(84, 70%, 45%);
+}
+.message .container {
+  display: flex;
+  margin: 0 auto;
+  max-width: 43.5rem;
+  padding: 0 1em;
+}
+.message p {
+  flex-grow: 1;
+  margin: 0;
+  padding: 0.8em;
+  text-align: center;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
+  word-break: keep-all;
+}
+.message p, .message p a {
+  color: white;
+}
+.message button {
+  appearance: none;
+  border: 0;
+  background-color: transparent;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d=' M88.985,81.9L81.9,88.985l-31.9-31.9L17.9,89.172,10.828,82.1,42.92,50.009l-31.9-31.9L18.1,11.015l31.9,31.905,31.53-31.53,7.071,7.071L57.08,49.992Z' fill='%23fff'%3E%3C/path%3E%3C/svg%3E");
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: 1em auto;
+  box-sizing: content-box;
+  cursor: pointer;
+  display: block;
+  flex-basis: 1em;
+  overflow: hidden;
+  padding: 0 0.5em;
+  text-indent: 4em;
+  text-overflow: "";
+  white-space: nowrap;
+  width: 1em;
+}
